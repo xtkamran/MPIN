@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPIN Strength Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 MPIN Strength Analyzer</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider round"></div>
+                </label>
+                <span>Dark Mode</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="4digit">4-Digit MPIN</button>
+                <button class="tab-btn" data-tab="6digit">6-Digit MPIN</button>
+            </div>
+
+            <div class="tab-content active" id="4digit-tab">
+                <div class="input-group">
+                    <label for="mpin-4">Enter 4-Digit MPIN</label>
+                    <input type="password" id="mpin-4" maxlength="4" placeholder="e.g. 1234">
+                </div>
+
+                <div class="demographics">
+                    <h3>Optional Demographic Info (For Better Analysis)</h3>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="user-dob">Your Date of Birth</label>
+                            <input type="text" id="user-dob" placeholder="DD/MM/YYYY">
+                        </div>
+                        <div class="input-group">
+                            <label for="spouse-dob">Spouse's Date of Birth</label>
+                            <input type="text" id="spouse-dob" placeholder="DD/MM/YYYY">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="anniversary">Wedding Anniversary</label>
+                        <input type="text" id="anniversary" placeholder="DD/MM/YYYY">
+                    </div>
+                </div>
+
+                <button id="analyze-4" class="btn analyze-btn">Analyze MPIN</button>
+                <button id="generate-4" class="btn generate-btn">Generate Strong MPIN</button>
+            </div>
+
+            <div class="tab-content" id="6digit-tab">
+                <div class="input-group">
+                    <label for="mpin-6">Enter 6-Digit MPIN</label>
+                    <input type="password" id="mpin-6" maxlength="6" placeholder="e.g. 123456">
+                </div>
+
+                <div class="demographics">
+                    <h3>Optional Demographic Info (For Better Analysis)</h3>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="user-dob-6">Your Date of Birth</label>
+                            <input type="text" id="user-dob-6" placeholder="DD/MM/YYYY">
+                        </div>
+                        <div class="input-group">
+                            <label for="spouse-dob-6">Spouse's Date of Birth</label>
+                            <input type="text" id="spouse-dob-6" placeholder="DD/MM/YYYY">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="anniversary-6">Wedding Anniversary</label>
+                        <input type="text" id="anniversary-6" placeholder="DD/MM/YYYY">
+                    </div>
+                </div>
+
+                <button id="analyze-6" class="btn analyze-btn">Analyze MPIN</button>
+                <button id="generate-6" class="btn generate-btn">Generate Strong MPIN</button>
+            </div>
+
+            <div class="result-container">
+                <h2>Analysis Result</h2>
+                <div id="result" class="result">
+                    <div class="strength">
+                        <span class="label">Strength:</span>
+                        <span id="strength" class="value">-</span>
+                    </div>
+                    <div class="reasons">
+                        <span class="label">Reasons:</span>
+                        <ul id="reasons"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>About MPIN Security</h3>
+            <p>An MPIN (Mobile Personal Identification Number) is used to authenticate mobile banking transactions. A
+                strong MPIN should:</p>
+            <ul>
+                <li>Not be a commonly used sequence (e.g., 1234, 1111)</li>
+                <li>Not be based on personal information like birth dates</li>
+                <li>Not be repeated digits or simple patterns</li>
+                <li>Be memorized but not easily guessed by others</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
